@@ -1,11 +1,13 @@
 let game = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]];
 let canmove = [];
 let scorce = 0;
+let play = true;
 function init() {
     game = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]];
     addTile();
     addTile();
     scorce = 0;
+    paly = true;
     $('#scorce').html('scorce: '+scorce);
     $('.game-over').fadeOut();
     updateView();
@@ -56,7 +58,9 @@ function updateView() {
                 tileContainer.html(now + str);
             }
             if(game[i][j]===2048){
-                $('.game-intro').html('2048！恭喜你！');
+                $('.game-over p').html('2048！恭喜你！');
+                $('.game-over').fadeIn();
+                play = false;
             }
         }
     }
